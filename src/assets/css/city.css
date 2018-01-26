@@ -1,0 +1,14 @@
+.mint-indexsection-index{
+    background:#eee!important;
+}
+.mint-indexlist-nav{
+    background:#fafafa;
+}
+.mint-indexlist-navlist{
+    position:fixed;
+    top:100px;
+    right:0;
+    z-index:999;
+    font-size:12px;
+    color:#a9a9a9;
+}

@@ -1,0 +1,10 @@
+@media (max-width: 375px) {
+	.el-carousel__button{
+		width:25px!important;
+	}
+}
+@media (max-width: 340px) {
+	.el-carousel__button{
+		width:22px!important;
+	}
+}
