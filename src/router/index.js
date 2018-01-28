@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import MovieList from '../page/MovieList'
 import videoPage from '../page/videoPage.vue'
+import text from '../components/loading.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -15,6 +16,11 @@ export default new Router({
       path: '/videoPage',
       name: 'videoPage',
       component: videoPage
+    },
+    {
+      path: '/test',
+      name: 'text',
+      component: text
     }
   ]
 })

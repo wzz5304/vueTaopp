@@ -1,8 +1,6 @@
 <template>
   <section id='hot'>
-    <ul v-infinite-scroll="loadMore"
-  infinite-scroll-disabled="loading"
-  infinite-scroll-distance="10">
+    <ul>
       <li class="item-wrapper" v-for="item in hotList">
         <div class="m-info">
           <div class="poster-c">
@@ -68,15 +66,10 @@ export default {
     //...mapGetters(['hotList'])
   },
   methods: {
-    loadMore(){
-      this.loading = true;
-      setTimeout(() => {
-        this.loading = false;
-      }, 2500);
-    },
     clickVideo(data) {
       let url = data.iphoneUrl;
-      this.$store.commit('playVideo', url);
+      let imgUrl = data.coverUrl;
+      this.$store.commit('playVideo', url,imgUrl);
       this.$router.push({
         path:`videoPage`
       }); 

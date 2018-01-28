@@ -1,16 +1,16 @@
 @media (max-width:1920px){
-	.vjs_video_3-dimensions{
+	.vjs_video_3-dimensions,.vjs_video_431-dimensions,.vjs_video_677-dimensions {
 		width: 100% !important;
 		height: 600px !important;
 	}
 }
 @media (max-width:1024px){
-	.vjs_video_3-dimensions{
+	.vjs_video_3-dimensions,.vjs_video_431-dimensions,.vjs_video_677-dimensions {
 		height: 450px !important;
 	}
 }
 @media (max-width:767px){
-	.vjs_video_3-dimensions{
+	.vjs_video_3-dimensions,.vjs_video_431-dimensions,.vjs_video_677-dimensions {
 	  height: 250px !important;
 	}
 	.vjs_video_3-dimensions.vjs-fluid{

@@ -28,13 +28,21 @@ import '../assets/css/reset.css'
 import '../assets/css/home.css'
 import City from '../components/selectCity.vue'
 import hotList from '../components/hotList.vue'
+import loading from '../components/loading.vue'
 import { mapMutations, mapState } from 'vuex'
 export default {
 	data() {
 		return {
 			colorFlag:1,
-			cityShow:false
+			cityShow:false,
+			loading: false
 		}
+	},
+	created(){
+		this.loading = true;
+	},
+	mounted(){
+		this.loading = false;
 	},
 	computed:{
 		...mapState(['cityName'])
@@ -47,7 +55,8 @@ export default {
 	components: {
 		Swiper,
 		City,
-		hotList
+		hotList,
+		loading
 	}
 }
 </script>

@@ -3,7 +3,7 @@
     <div class="container">
       <video-player class="vjs-custom-skin"
                   ref="videoPlayer"
-                  :options="playerOptions"
+                  :options="videoUrl"
                   :playsinline="true"
                   @play="onPlayerPlay($event)"
                   @pause="onPlayerPause($event)"
@@ -15,12 +15,11 @@
                   @canplay="onPlayerCanplay($event)"
                   @canplaythrough="onPlayerCanplaythrough($event)"
                   @ready="playerReadied"
-                  @statechanged="playerStateChanged($event)">
+                  @statechanged="playerStateChanged($event)" height="200px">
   </video-player>
     </div>
   </div>
 </template>
-
 <script>
 import 'video.js/dist/video-js.css'
 import '../assets/css/video.css'
@@ -28,26 +27,13 @@ import { videoPlayer } from 'vue-video-player'
 import { mapMutations, mapState,mapGetters } from 'vuex'
 export default {
   data() {
-    return {
-      message: 'Hi from Vue',
-      playerOptions: {
-        autoplay: true,
-        muted: true,
-        language: 'en',
-        playbackRates: [0.7, 1.0, 1.5, 2.0],
-        sources: {
-          type: "video/mp4",
-          src: 'http://cloud.video.taobao.com/play/u/1745440806/p/1/e/6/t/1/d/sd/47819068.mp4'
-        },
-        poster: "http://img1.tbcdn.cn/tfscom/TB18pUuOpXXXXb_XpXXXXXXXXXX.jpg_336x336q75s0.jpg",
-      }
-    }
+    return {}
   },
   mounted(){
     setTimeout(() => {
-        //this.player.muted(true)
-        this.playerOptions.sources.src=this.videoUrl;
+        this.player.muted(false)
       }, 2000);
+    //console.log(this.videoUrl);
   },
   computed:{
     player() {

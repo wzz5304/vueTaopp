@@ -5,9 +5,18 @@ Vue.use(Vuex)
 const state = {
   cityName:'深圳',
   hotList:[],
-  videoUrl:'http://img1.tbcdn.cn/tfscom/TB18pUuOpXXXXb_XpXXXXXXXXXX.jpg_336x336q75s0.jpg'
+  videoUrl: {
+        autoplay: true,
+        muted: true,
+        language: 'en',
+        playbackRates: [0.7, 1.0, 1.5, 2.0],
+        sources: {
+          type: "video/mp4",
+          src: ''
+        },
+        poster: "",
+      }
 }
-
 export default new Vuex.Store({
   state,
   mutations: {
@@ -19,8 +28,9 @@ export default new Vuex.Store({
       state.hotList = hot;
     },
     //选择播放视频
-    playVideo(state,videoUrl){
-      state.videoUrl = videoUrl;
+    playVideo(state,videoUrl,videoImg){
+      state.videoUrl.sources.src = videoUrl;
+      state.videoUrl.poster = videoImg;
     }
   },
   actions:{
