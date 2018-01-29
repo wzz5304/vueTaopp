@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import MovieList from '../page/MovieList'
 import videoPage from '../page/videoPage.vue'
-import text from '../components/loading.vue'
+import text from '../components/ratings.vue'
 Vue.use(Router)
 
 export default new Router({

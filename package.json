@@ -12,11 +12,13 @@
   "dependencies": {
     "axios": "^0.17.1",
     "babel-preset-es2015": "^6.24.1",
+    "better-scroll": "^1.8.0",
     "element-ui": "^2.0.11",
     "js-base64": "^2.4.2",
     "mint-ui": "^2.2.13",
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",
+    "stylus": "^0.54.5",
     "vue": "^2.5.2",
     "vue-infinite-scroll": "^2.0.2",
     "vue-lazyload": "^1.1.4",

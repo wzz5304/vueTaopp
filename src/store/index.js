@@ -6,16 +6,21 @@ const state = {
   cityName:'深圳',
   hotList:[],
   videoUrl: {
-        autoplay: true,
-        muted: true,
-        language: 'en',
-        playbackRates: [0.7, 1.0, 1.5, 2.0],
-        sources: {
-          type: "video/mp4",
-          src: ''
-        },
-        poster: "",
-      }
+    autoplay: true,
+    muted: true,
+    anguage: 'zh-CN',
+    aspectRatio: '16:9',
+    fluid: true, 
+    width: document.documentElement.clientWidth,
+    // notSupportedMessage: '此视频暂无法播放，请稍后再试',
+    playbackRates: [0.7, 1.0, 1.5, 2.0],
+    sources: {
+      type: "video/mp4",
+      src: ''
+    },
+    poster: "",
+  },
+  selectVedioList:[]
 }
 export default new Vuex.Store({
   state,
@@ -31,6 +36,10 @@ export default new Vuex.Store({
     playVideo(state,videoUrl,videoImg){
       state.videoUrl.sources.src = videoUrl;
       state.videoUrl.poster = videoImg;
+    },
+    //选择播放视频的信息
+    playVideoDesc(state,selectVedioList){
+      state.selectVedioList = selectVedioList;
     }
   },
   actions:{

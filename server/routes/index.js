@@ -6,6 +6,7 @@ var city = require('../database/city.json');
 var sh_hot = require('../database/sh_hot.json');
 var gz_hot = require('../database/gz_hot.json');
 var bj_hot = require('../database/bj_hot.json');
+var evaluationg = require('../database/cc_evaluation.json');
 app.use('/api',router);
 /* GET home page. */
 // 跑马灯数据
@@ -40,4 +41,10 @@ router.get('/hostlist', function(req, res, next) {
   });
 });
 
+// 获取评论信息
+router.get('/evaluationg', function(req, res, next) {
+  res.json({
+    data:evaluationg
+  });
+});
 module.exports = router;

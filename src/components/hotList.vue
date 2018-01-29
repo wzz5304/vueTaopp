@@ -4,7 +4,7 @@
       <li class="item-wrapper" v-for="item in hotList">
         <div class="m-info">
           <div class="poster-c">
-            <a class="poster" @click="clickVideo(item.preview[0])">
+            <a class="poster" @click="clickVideo(item)">
               <img v-lazy="`https://gw.alicdn.com/${item.poster}`" alt="">
               <i class="el-icon-caret-right"></i>
             </a>   
@@ -67,9 +67,10 @@ export default {
   },
   methods: {
     clickVideo(data) {
-      let url = data.iphoneUrl;
-      let imgUrl = data.coverUrl;
+      let url = data.preview[0].iphoneUrl;
+      let imgUrl = data.preview[0].coverUrl;
       this.$store.commit('playVideo', url,imgUrl);
+      this.$store.commit('playVideoDesc', data);
       this.$router.push({
         path:`videoPage`
       }); 

@@ -1,9 +1,11 @@
 <template>
   <div>
 	<el-carousel height="40vw">
-      <el-carousel-item v-for="(item,index) in swiperlist" :key="index">
-        <img class="img" :src="'https://gw.alicdn.com/tfs/' + item.smallPicUrl" />
-      </el-carousel-item>
+	    <el-carousel-item v-for="(item,index) in swiperlist" :key="index">
+			<a :href="item.actionUrl">
+			    <img class="img" :src="'https://gw.alicdn.com/tfs/' + item.smallPicUrl" />
+			</a>
+		</el-carousel-item>
     </el-carousel>
   </div>
 </template>
