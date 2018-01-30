@@ -1,1 +1,25 @@
-body,section,header,footer,div,ul,li{padding:0; margin:0;}
+* {
+     margin: 0;
+     padding: 0;
+ }
+ em,i {
+     font-style: normal;
+ }
+ li {
+     list-style: none;
+ }
+ img {
+     border: 0;
+     vertical-align: middle;
+ }
+ button {
+     cursor: pointer;
+ }
+ a {
+     color: #666;
+     text-decoration: none;
+ }
+ a:hover {
+     color: #c81623;
+ }
+ input,button,select,textarea{outline:none; filter:chroma(color=#000000);}

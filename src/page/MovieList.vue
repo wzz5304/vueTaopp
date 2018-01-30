@@ -17,7 +17,47 @@
     	   <Swiper></Swiper>
     	   <hot-list></hot-list>
     	</el-main>
-    	<el-footer>11</el-footer>
+    	<el-footer>
+    		<ul>
+    			<li class="footer-item">
+    				<router-link to="/" >
+    					<div class="nav-icon" @click="selectBox(1)">
+    						<img src="../assets/images/hno.svg" alt="" v-if="selectIcon !== 1">
+    						<img src="../assets/images/hok.svg" alt="" v-else="selectIcon === 1">
+    					</div>
+    					<div @click="selectBox(1)">
+	    					<span class="text-style" style="color:#777;" v-if="selectIcon !== 1">热映</span>
+	    					<span class="text-style" style="color:#ff4d64;" v-else="selectIcon === 1">热映</span>
+    					</div>
+    				</router-link>
+    			</li>
+    			<li class="footer-item">
+    				<router-link to="/" >
+    					<div class="nav-icon" @click="selectBox(2)">
+    						<img src="../assets/images/mno.svg" alt="" v-if="selectIcon !== 2">
+    						<img src="../assets/images/mok.svg" alt="" v-else="selectIcon === 2">
+    					</div>
+    					<div @click="selectBox(2)">
+	    					<span class="text-style" style="color:#777;" v-if="selectIcon !== 2">影院</span>
+	    					<span class="text-style" style="color:#ff4d64;" v-else="selectIcon === 2">影院</span>
+    					</div>
+    				</router-link>
+    			</li>
+    			<li class="footer-item">
+    				<router-link to="/" >
+    					<div class="nav-icon" @click="selectBox(3)">
+    						<img src="../assets/images/eno.svg" alt="" v-if="selectIcon !== 3">
+    						<img src="../assets/images/eok.svg" alt="" v-else="selectIcon === 3">
+    					</div>
+    					<div @click="selectBox(3)">
+	    					<span class="text-style" style="color:#777;" v-if="selectIcon !== 3" >我的</span>
+	    					<span class="text-style" style="color:#ff4d64;" v-else="selectIcon === 3">我的</span>
+    					</div>
+    					
+    				</router-link>
+    			</li>
+    		</ul>
+    	</el-footer>
     </el-container>
   </div>
 </template>
@@ -35,7 +75,8 @@ export default {
 		return {
 			colorFlag:1,
 			cityShow:false,
-			loading: false
+			loading: false,
+			selectIcon:1
 		}
 	},
 	created(){
@@ -50,6 +91,9 @@ export default {
 	methods:{
 		cityClose() {
 			this.cityShow = false;
+		},
+		selectBox(val) {
+			this.selectIcon = val;
 		}
 	},
 	components: {
@@ -125,11 +169,33 @@ export default {
 		}
 		.el-footer{
 			position: fixed;
+			padding:6px 0;
 			width:100%;
-			height:40px;
-			border:1px solid #ededed;
-			background:black;
+			height:50px !important;
+			background:#fff;
 			bottom:0;
+			ul{
+				display: flex;
+				.footer-item{
+					flex:1 1 auto;
+					// border:1px solid red;
+					.nav-icon{
+						width: 22px;
+	                    height: 22px;
+	                    margin: 0 auto;
+	                    img{
+	                    	width:100%;
+	                    	height:100%;
+	                    }
+					}
+					.text-style{
+						display: block;
+						font-size: 10px;
+						text-align:center;
+						line-height: 16px;
+					}
+				}
+			}
 		}
 	}
 </style>
