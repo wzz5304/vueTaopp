@@ -9,17 +9,14 @@ import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 import store from './store/index.js'
 import vueLazyLoad from 'vue-lazyload'
-import infiniteScroll from 'vue-infinite-scroll'
 import Base64 from 'js-base64'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.use(MintUI)
-Vue.use(infiniteScroll)
 Vue.use(Base64)
 Vue.use(vueLazyLoad,{
-	loading:"./static/loading-svg/loading-bars.svg" , // 设置图片懒加载
-	listenEvents: [ 'scroll' ]
+	loading:"../static/loading-svg/loading-bars.svg"  // 设置图片懒加载
 })
 /* eslint-disable no-new */
 new Vue({

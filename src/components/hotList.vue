@@ -1,5 +1,5 @@
 <template>
-  <section id='hot'>
+  <section id='hot' ref="wrapper">
     <ul>
       <li class="item-wrapper" v-for="item in hotList">
         <div class="m-info">
@@ -50,6 +50,7 @@ import '../assets/css/hot.css'
 import axios from 'axios'
 import Vue from 'vue'
 import { mapMutations, mapState,mapGetters } from 'vuex'
+import BScroll from 'better-scroll'
 export default {
   data() {
     return {
@@ -60,6 +61,11 @@ export default {
   mounted(){
     //this.getHotList();
     this.$store.dispatch('getHotList');
+    this.$nextTick(() => {
+        this.scroll = new BScroll(this.$refs.wrapper,{
+          click:true
+        });
+    });
   },
   computed:{
     ...mapState(['cityName','hotList'])
@@ -80,6 +86,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 #hot{
+  overflow: hidden;
+  height:70vh;
   ul{
     .item-wrapper{
       position: relative;

@@ -1,7 +1,8 @@
 <template>
   <section class="content-wrapper" ref="contentWrapper">
      <!--  <h3 class="title">热门评论</h3> -->
-      <div class="rating-wrapper" v-for="(item, index) in evaluList" :key="index" >
+     <ul>
+       <li class="rating-wrapper" v-for="(item, index) in evaluList" :key="index" >
         <div class="avatar">
           <img :src="'https://gw.alicdn.com/tfs/' + item.avatar" alt="">
         </div>
@@ -14,7 +15,8 @@
             <span class="count">{{item.favorCount}}</span>
           </div>
         </div>
-      </div>
+       </li>
+     </ul>
     </section>
 </template>
 
@@ -27,7 +29,7 @@ export default {
       evaluList:[]
     }
   },
-  created(){
+  mounted(){
     this.getEvaluationg();
   },
   methods: {
@@ -36,6 +38,9 @@ export default {
         res = res.data.data.data;
         if(res.returnCode === '0') {
           this.evaluList = res.returnValue;
+          this.$nextTick(() => {
+          this._initScroll();
+        });
         }
         console.log(res);
       }));
@@ -54,7 +59,7 @@ export default {
 .content-wrapper{
     padding:0 18px;
     overflow:hidden;
-    height:100%;
+    height:50vh;
     .title{
       font-size:16px;
       color:#222227;

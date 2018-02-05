@@ -1,5 +1,6 @@
 <template>
   <div class="list-wrapper" style="height: 100%">
+    <loading v-if="loadingFlag"></loading>
     <City v-if="cityShow" @closeCity="cityClose"></City>
     <el-container class="container">
     	<el-header>
@@ -75,15 +76,15 @@ export default {
 		return {
 			colorFlag:1,
 			cityShow:false,
-			loading: false,
+			loadingFlag: false,
 			selectIcon:1
 		}
 	},
 	created(){
-		this.loading = true;
+		this.loadingFlag = true;
 	},
 	mounted(){
-		this.loading = false;
+		this.loadingFlag = false;
 	},
 	computed:{
 		...mapState(['cityName'])

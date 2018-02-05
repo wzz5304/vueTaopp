@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="container">
+    <loading v-if="loadingFlag"></loading>
     <header class="header-wrapper">
       <router-link to="/">
         <div class="logo">
@@ -41,12 +42,18 @@ import '../assets/css/videopage.css'
 import videoPlayer from '../components/videoPlayer.vue'
 import split from '../components/split.vue'
 import rating from '../components/ratings.vue'
+import loading from '../components/loading.vue'
 export default {
   data() {
     return {
+      loadingFlag:false
     }
   },
+  created(){
+    this.loadingFlag = true;
+  },
   mounted(){
+    this.loadingFlag = false;
   },
   computed:{
     ...mapState(['selectVedioList'])
@@ -57,7 +64,8 @@ export default {
   components: {
     videoPlayer,
     split,
-    rating
+    rating,
+    loading
   }
 }
 </script>
